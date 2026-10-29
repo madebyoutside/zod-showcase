@@ -1,0 +1,8 @@
+[tools]
+node = "24"
+bun = "1.4.4"
+"npm:portless" = "latest"
+
+[tasks.dev]
+description = "Dev server at https://zod-showcase.localhost"
+run = "portless zod-showcase bun run dev"

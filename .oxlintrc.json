@@ -1,0 +1,40 @@
+{
+  "plugins": ["typescript", "unicorn", "oxc", "import", "node", "react", "nextjs"],
+  "categories": { "correctness": "error", "suspicious": "warn" },
+  "rules": {
+    "unicorn/filename-case": ["error", { "case": "kebabCase" }],
+    "typescript/consistent-type-imports": "error",
+    "typescript/no-non-null-assertion": "error",
+    "import/no-relative-parent-imports": "error",
+    "import/no-default-export": "error",
+    "oxc/no-barrel-file": "error",
+    "node/no-process-env": "error",
+    "no-console": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "VariableDeclaration[kind='let']",
+        "message": "Use const. Extract a function or use a ternary instead of reassigning."
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css", "server-only"] }]
+  },
+  "overrides": [
+    {
+      "files": ["src/app/**/*.ts", "src/app/**/*.tsx", "*.config.ts", "*.config.mjs"],
+      "rules": { "import/no-default-export": "off" }
+    },
+    {
+      "files": ["src/config/*.env.ts", "drizzle.config.ts", "scripts/**/*.ts"],
+      "rules": { "node/no-process-env": "off" }
+    },
+    {
+      "files": ["scripts/**/*.ts"],
+      "rules": { "no-console": "off", "import/no-relative-parent-imports": "off" }
+    }
+  ],
+  "ignorePatterns": ["node_modules", ".next", "next-env.d.ts", "drizzle"]
+}

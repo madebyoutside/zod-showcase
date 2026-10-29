@@ -1,0 +1,49 @@
+{
+  "name": "zod-showcase",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "bun run env:check",
+    "dev": "next dev",
+    "prebuild": "NODE_ENV=production bun run env:check",
+    "build": "next build",
+    "start": "next start",
+    "test": "bun test --conditions=react-server",
+    "env:check": "bun --conditions=react-server scripts/pre-dev.ts",
+    "lint": "bunx bun@1.4.4-canary.20261028.1 lint --no-script",
+    "fix": "bun fmt && bun run lint --fix",
+    "check": "bun fmt --check && bun run lint && next typegen && bun check && bun run test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "packageManager": "bun@1.4.4",
+  "dependencies": {
+    "@hookform/resolvers": "^6.0.2",
+    "drizzle-orm": "^0.45.4",
+    "drizzle-zod": "^0.8.3",
+    "next": "^16.4.3",
+    "pg": "^8.23.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-hook-form": "^7.91.0",
+    "server-only": "^0.0.1",
+    "sonner": "^2.0.8",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@next/env": "^16.4.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/bun": "^1.4.4",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "drizzle-kit": "^0.31.11",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
